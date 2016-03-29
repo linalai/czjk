@@ -1,0 +1,45 @@
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.nicescroll.js"></script>
+<script>
+	//导航滑过效果
+	$(".nav>li>a").mouseenter(function(){
+		var $this = $(this);
+		$this.siblings('.auto').show();
+	});
+	$(".nav>li").mouseleave(function(){
+		$('.auto').hide();
+	});
+//滚动条优化
+	$("#scroll").niceScroll({
+		cursorcolor:"#df9e2a",
+		cursoropacitymax:1,
+		touchbehavior:true,
+		cursorwidth:"4px",
+		cursorborder:"0",
+		cursorborderradius:"5px"
+	});
+//导航选中
+ var pageFile = location.pathname.split('_').pop();
+ var label = $(".sec-nav li a");
+ var label_1 = $(".nav>li a");
+ label.each(function(i,val){
+ 	var $this = $(this);
+ 	var href = val.href.split('_').pop();
+ 	if (pageFile == href) {
+ 		label.eq(i).addClass('on')
+ 	};
+ })
+
+ var data = $(".header").attr("data-tag");
+ if (data == "index") {
+ 	$(".fir-1").addClass('on');
+ }else if (data == "jtjs") {
+ 	$(".fir-2").addClass('on');
+ }else if (data == "jytz") {
+ 	$(".fir-3").addClass('on');
+ }else if (data == "zcgl") {
+ 	$(".fir-4").addClass('on');
+ }else if (data == "rzfw") {
+ 	$(".fir-5").addClass('on');
+ };
+</script>
